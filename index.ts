@@ -7,11 +7,9 @@ import apiRouter from './src/routes/routes';
   // Import the routes
   app.use('/api', apiRouter);
 
-    const { PORT } = process.env;
+  const PORT = 3000;
 
-  const SERVER_PORT = PORT || 3000;
-
-  app.listen(SERVER_PORT, () => {
-    console.log(`Server listening on port ${SERVER_PORT}`);
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
   });
   
