@@ -1,9 +1,20 @@
 import { getMeals, getRatings } from '../data';
 import { Meal } from '../entities/Meal';
 
-export function getAllMeals(chefName?: string) {
+export function getMeal(chefName: string, meal: string) {
   const meals = getMeals();
-  return chefName !== '' ? meals : meals.filter(m => m.chefName === chefName);
+  return meals.find(
+    m =>
+      m.chefName.toLowerCase() === chefName.toLowerCase() &&
+      m.meal.toLowerCase() === meal.toLowerCase(),
+  );
+}
+
+export function getAllMeals(chefName = '') {
+  const meals = getMeals();
+  return chefName !== ''
+    ? meals.filter(m => m.chefName.toLowerCase() === chefName.toLowerCase())
+    : meals;
 }
 
 export function recalculateRatings(mealToUpdate: Meal) {
@@ -23,7 +34,7 @@ export function recalculateRatings(mealToUpdate: Meal) {
   );
   let totalRating = 0;
   let numRatings = 0;
-  console.log('mealRatings: ', mealRatings);
+
   mealRatings.forEach(r => {
     if (r.meal.rating !== undefined) {
       totalRating += r.meal.rating;
@@ -46,11 +57,9 @@ export function rateMeal(username: string, mealToRate: Meal, rating: number) {
       r.meal.meal === mealToRate.meal,
   );
 
-  console.log('foundRating: ', foundRating);
   if (foundRating === undefined) {
     mealToRate.rating = rating;
     ratings.push({ username, meal: mealToRate });
-    console.log('mealToRate: ', mealToRate);
     recalculateRatings(mealToRate);
   } else {
     throw new Error('User can rate the meal only once.');
