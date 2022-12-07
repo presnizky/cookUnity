@@ -1,16 +1,16 @@
 import { getApp } from './server/index';
 
 export function start() {
-    const app = getApp();
-    const {PORT} = process.env;
+  const app = getApp();
+  const { PORT } = process.env;
 
-    const SERVER_PORT = PORT || 3000;
+  const SERVER_PORT = PORT || 3000;
 
-    const server = app.listen(SERVER_PORT, () => {
-        console.log(`Server listening on port ${SERVER_PORT}`);
-    });
+  const server = app.listen(SERVER_PORT, () => {
+    console.log(`Server listening on port ${SERVER_PORT}`);
+  });
 
-    return server;
+  return server;
 }
 // import express from 'express';
 

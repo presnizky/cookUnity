@@ -1,6 +1,6 @@
-import { Meal } from "./Meal";
+import { Meal } from './Meal';
 
-export interface Rating {    
-    username: string,
-    meal: Meal
+export interface Rating {
+  username: string;
+  meal: Meal;
 }

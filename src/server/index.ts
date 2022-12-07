@@ -1,12 +1,11 @@
 import express from 'express';
 
 export function getApp() {
-    const app = express();
-    app.use(express.json());
+  const app = express();
+  app.use(express.json());
 
-    return app;
+  return app;
 }
-
 
 // const PORT = 3000;
 
