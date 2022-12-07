@@ -1,8 +1,8 @@
-import { UserType } from "../../types";
+import { UserType } from '../../types';
 
-export interface User {    
-    name: string;
-    email: string;
-    password: string;
-    type: UserType
+export interface User {
+  name: string;
+  email: string;
+  password: string;
+  type: UserType;
 }
